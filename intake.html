@@ -40,6 +40,17 @@ fbq('track','Purchase',{value:14.99,currency:'EUR'});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=865727659692251&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
+<script>
+window.addEventListener('DOMContentLoaded',function(){
+  try{
+    var a=localStorage.getItem('voltr_analyse');
+    if(a){var h=document.getElementById('rechner_auswertung'); if(h) h.value=a;}
+    var n=localStorage.getItem('voltr_name'), e=localStorage.getItem('voltr_email');
+    var nf=document.querySelector('[name=name]'); if(n&&nf&&!nf.value) nf.value=n;
+    var ef=document.querySelector('[name=email]'); if(e&&ef&&!ef.value) ef.value=e;
+  }catch(err){}
+});
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -53,6 +64,7 @@ fbq('track','Purchase',{value:14.99,currency:'EUR'});
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://analyse.voltr.at/danke.html">
+    <input type="hidden" name="rechner_auswertung" id="rechner_auswertung">
 
     <label>Vorname und Nachname</label>
     <input type="text" name="name" required>
