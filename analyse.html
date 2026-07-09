@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die persönliche Analyse · VOLTR</title>
+<meta name="description" content="Persönliche Analyse deiner Situation: Ist-Stand mit Zahlen, dein größter Engpass, 12-Monats-Projektion, konkrete Handlungsempfehlung. In 48 Stunden. 24 €, einmalig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--panel:#101010;--line:#232321;--line2:#3a3a37;--text:#f4f4f2;--dim:#a3a39e;--dimmer:#63635f;--max:1080px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;font-weight:300;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.mono{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+a{color:inherit}
+nav{position:sticky;top:0;background:rgba(10,10,10,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:50}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;height:64px}
+.wordmark{font-weight:600;letter-spacing:.28em;font-size:15px;text-decoration:none;text-transform:uppercase}
+.nav-cta{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;text-decoration:none;background:var(--text);color:var(--bg);padding:10px 22px;border-radius:999px;transition:opacity .2s;white-space:nowrap}
+.nav-cta:hover{opacity:.85}
+h1{font-weight:300;font-size:clamp(36px,5.5vw,62px);line-height:1.08;letter-spacing:-.015em;max-width:840px}
+h1 strong,h2 strong{font-weight:600}
+h2{font-weight:300;font-size:clamp(26px,3.8vw,40px);line-height:1.14;max-width:720px}
+section{padding:88px 0;border-bottom:1px solid var(--line)}
+.sec-label{display:block;margin-bottom:40px}
+.btn{display:inline-block;background:var(--text);color:var(--bg);text-decoration:none;font-family:'Outfit',sans-serif;font-weight:500;font-size:16px;letter-spacing:.01em;padding:18px 40px;border-radius:999px;border:1px solid var(--text);transition:all .2s;cursor:pointer;text-align:center}
+.btn:hover{opacity:.85;transform:translateY(-1px)}
+.note{margin-top:18px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--dimmer)}
+
+.hero{padding:96px 0 80px;border-bottom:1px solid var(--line)}
+.hero .tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:28px}
+.hero p.lead{margin-top:28px;font-size:18px;color:var(--dim);max-width:580px}
+.trust-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:44px}
+.trust-row span{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line2);border-radius:999px;padding:9px 16px}
+
+.pain{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+.p-item{background:var(--panel);padding:36px 28px}
+.p-item .x{font-family:'Space Mono',monospace;font-size:12px;color:var(--dimmer);display:block;margin-bottom:16px}
+.p-item h3{font-weight:400;font-size:16px;margin-bottom:10px;line-height:1.4}
+.p-item p{font-size:14px;color:var(--dim)}
+.pain-close{margin-top:56px;max-width:700px}
+.pain-close p{font-size:20px;line-height:1.5}
+.pain-close p strong{font-weight:600}
+
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+@media(max-width:640px){.vs{grid-template-columns:1fr}}
+.vs>div{background:var(--panel);padding:44px 36px}
+.vs>div.hi{background:var(--text);color:var(--bg)}
+.vs h3{font-weight:300;font-size:24px;margin:14px 0 12px}
+.vs .hi h3{font-weight:500}
+.vs p{font-size:15px;color:var(--dim)}
+.vs .hi p{color:#3f3f3c}
+.vs .hi .mono{color:#6a6a66}
+
+.deliver{max-width:720px;margin-top:56px}
+.d-row{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}
+.d-row .num{font-family:'Space Mono',monospace;font-size:13px;color:var(--dimmer);padding-top:4px}
+.d-row h3{font-weight:400;font-size:17px;margin-bottom:8px}
+.d-row p{color:var(--dim);font-size:15px}
+.d-ship{background:var(--panel);border:1px solid var(--line2);padding:30px;margin-top:40px;max-width:720px;font-size:15px;color:var(--dim)}
+.d-ship b{font-weight:500;color:var(--text)}
+
+.steps{margin-top:56px;max-width:700px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line)}
+.step .num{font-family:'Space Mono',monospace;font-size:13px;color:var(--dimmer);padding-top:4px}
+.step h3{font-weight:400;font-size:17px;margin-bottom:8px}
+.step p{color:var(--dim);font-size:15px}
+
+.coach{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.coach-photo{aspect-ratio:4/5;background:var(--panel);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.coach-photo span{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--dimmer);text-transform:uppercase;text-align:center;padding:0 16px;line-height:2}
+.coach p{font-size:16px;color:var(--dim);margin-bottom:18px;max-width:520px}
+.stats{display:flex;gap:48px;margin-top:40px;flex-wrap:wrap}
+.stats .num{font-family:'Space Mono',monospace;font-weight:700;font-size:26px;color:var(--text)}
+.stats span{display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer);margin-top:6px}
+@media(max-width:720px){.coach{grid-template-columns:1fr;gap:36px}}
+
+.fitlist{max-width:700px;margin-top:48px;list-style:none}
+.fitlist li{display:grid;grid-template-columns:28px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);font-size:16px}
+.fitlist li span{font-family:'Space Mono',monospace;font-size:13px;color:var(--dim)}
+
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+.pr-item{background:var(--panel);display:flex;flex-direction:column}
+.pr-photo{aspect-ratio:4/3;background:#151514;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.pr-photo span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--dimmer);text-transform:uppercase;text-align:center;padding:0 16px;line-height:2}
+.pr-body{padding:28px;display:flex;flex-direction:column;gap:16px;flex:1}
+.pr-body p{font-size:15px;color:var(--dim);line-height:1.6;flex:1}
+.pr-body .who{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer)}
+
+.price-box{border:1px solid var(--text);border-radius:24px;max-width:520px;margin:56px auto 0;padding:56px 48px;text-align:center;background:var(--panel)}
+.price{font-weight:300;font-size:80px;line-height:1;margin:20px 0 8px;font-variant-numeric:tabular-nums}
+.price sup{font-size:26px;font-weight:300;vertical-align:super}
+.price-box ul{list-style:none;text-align:left;margin:36px 0}
+.price-box li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;display:grid;grid-template-columns:24px 1fr;gap:12px}
+.price-box li span{font-family:'Space Mono',monospace;font-size:12px;color:var(--dim)}
+.price-box li:last-child{border-bottom:none}
+.price-box .pay-note{margin-top:18px;font-size:12px;color:var(--dimmer)}
+
+.guarantee{border:1px solid var(--line2);border-radius:20px;max-width:700px;margin:0 auto;padding:40px;background:var(--panel)}
+.guarantee h3{font-weight:400;font-size:18px;margin:14px 0 12px}
+.guarantee p{font-size:15px;color:var(--dim)}
+
+.faq{max-width:720px;margin-top:48px}
+details{border-bottom:1px solid var(--line)}
+summary{padding:24px 0;font-size:17px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::after{content:'+';font-family:'Space Mono',monospace;font-size:18px;color:var(--dimmer);flex-shrink:0}
+details[open] summary::after{content:'-'}
+details p{padding:0 0 24px;color:var(--dim);font-size:15px;max-width:620px}
+footer{padding:56px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot .mono a{text-decoration:none;margin-left:24px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="index.html">VOLTR.</a>
+    <a class="nav-cta" href="https://buy.stripe.com/fZueVd6iOeBs1Y8bYN5EY00">24 € · Jetzt starten</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">VOLTR Analyse</span>
+    <h1>Du weißt selbst, was zu tun wäre. <strong>Warum ziehst du es dann nicht durch?</strong></h1>
+    <p class="lead">Die Rechnung hat dir gezeigt, was möglich ist. Was dich davon trennt, ist selten fehlendes Wissen. Es ist ein Muster, das dich immer wieder ausbremst. Genau dieses Muster analysiere ich persönlich.</p>
+    <a class="btn" href="https://buy.stripe.com/fZueVd6iOeBs1Y8bYN5EY00" style="margin-top:44px">Persönliche Analyse starten · 24 €</a>
+    <p class="note">Einmalig. Kein Abo. Deine Analyse innerhalb von 48 Stunden.</p>
+    <div class="trust-row">
+      <span>Dein größter Engpass</span>
+      <span>5 Minuten Aufwand</span>
+      <span>Konkrete Handlungsempfehlung</span>
+      <span>Geld-zurück-Garantie</span>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Das Problem</span>
+    <h2>Es ist selten fehlendes Wissen. Es ist ein <strong>Muster, das dich zurückwirft.</strong></h2>
+    <p style="margin-top:24px;max-width:640px;color:var(--dim)">Die meisten wissen längst, was sie tun müssten. Sie scheitern nicht an Disziplin. Sie scheitern immer am selben Punkt. Vor allem dann, wenn Job, Familie und Alltag keine perfekte Routine zulassen.</p>
+    <div class="pain">
+      <div class="p-item"><span class="x">/01</span><h3>Du weißt nicht, wie viel du wirklich essen solltest.</h3><p>Kalorien getrackt, Makros gerechnet, wieder aufgehört. Ohne die richtigen Grundzahlen läuft alles ins Leere.</p></div>
+      <div class="p-item"><span class="x">/02</span><h3>Du trainierst, aber siehst keine Veränderung.</h3><p>Du bist dabei, du machst was. Nach Wochen schaust du in den Spiegel und fragst dich, ob es überhaupt etwas bringt.</p></div>
+      <div class="p-item"><span class="x">/03</span><h3>Du weißt nicht, was zuerst kommt: Aufbau oder Fett runter.</h3><p>Jeder sagt etwas anderes. Ohne deinen Kontext ist jede Empfehlung geraten.</p></div>
+    </div>
+    <div class="pain-close">
+      <p>Du brauchst keinen neuen Plan. <strong>Du brauchst Klarheit, warum es nicht läuft.</strong></p>
+      <p style="margin-top:16px;font-size:16px;color:var(--dim)">24 €. Einmalig. Danach weißt du, warum dein aktuelles System dich immer wieder zurückgeworfen hat und welcher Schritt für dich der richtige ist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEIN WARUM -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Dein Warum</span>
+    <h2>Die Rechnung zeigt dir, was geht. Die Analyse zeigt dir, <strong>warum du noch nicht dort bist.</strong></h2>
+    <div class="vs">
+      <div>
+        <span class="mono">Kostenlos</span>
+        <h3>Das Was</h3>
+        <p>Die Rechnung hat dir gezeigt, was in 3, 6 oder 12 Monaten drin ist. Das Ziel steht damit klar vor dir. Aus deinen Angaben, konservativ gerechnet.</p>
+      </div>
+      <div class="hi">
+        <span class="mono">Persönlich · 24 €</span>
+        <h3>Das Warum</h3>
+        <p>Warum stehst du heute nicht dort? Welches Muster wirft dich zurück, und an welchem Hebel setzt du zuerst an? Das beantworte ich. Persönlich, nicht per Algorithmus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS DU BEKOMMST -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Was du bekommst</span>
+    <h2>Eine persönliche Analyse, <strong>konkret auf dich bezogen.</strong></h2>
+    <div class="deliver">
+      <div class="d-row"><span class="num">01</span><div><h3>Persönliche Diagnose deiner Situation</h3><p>Wo du wirklich stehst: Kalorienbedarf, Proteinziel, Grundumsatz, realistische Trainingsfrequenz. Konkrete Zahlen, keine Schätzungen.</p></div></div>
+      <div class="d-row"><span class="num">02</span><div><h3>Dein größter Engpass</h3><p>Das eine Muster, das dich zurückwirft: Training, Ernährung, Struktur oder Regeneration. Klar benannt, statt zehn generischer Tipps.</p></div></div>
+      <div class="d-row"><span class="num">03</span><div><h3>12-Monats-Projektion</h3><p>Gewicht und Körperfett über 12 Monate, gerechnet auf deine Situation. Damit du weißt, was dich erwartet, wenn du jetzt anfängst.</p></div></div>
+      <div class="d-row"><span class="num">04</span><div><h3>Konkrete Handlungsempfehlung</h3><p>Womit du in den nächsten 30 Tagen den größten Fortschritt erzielst. Gebaut um deinen echten Kalender, mit Regel für Wochen, die crashen.</p></div></div>
+    </div>
+    <div class="d-ship"><b>Geliefert als PDF plus persönliche Sprachnachricht</b> von mir, innerhalb von 48 Stunden, per Mail oder WhatsApp. Die Sprachnachricht ist das, was ich dir sonst im Erstgespräch sagen würde.</div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Der Ablauf</span>
+    <h2>Drei Schritte. <strong>48 Stunden.</strong></h2>
+    <div class="steps">
+      <div class="step"><span class="num">01</span><div><h3>Du füllst das Formular aus</h3><p>Direkt nach der Zahlung, dauert 5 Minuten. Deine Rechner-Auswertung hängt automatisch an.</p></div></div>
+      <div class="step"><span class="num">02</span><div><h3>Ich sehe mir deine Situation an</h3><p>Persönlich. Kein Automat, kein Team, kein Textbaustein. Ich rechne deine Zahlen und benenne dein Muster.</p></div></div>
+      <div class="step"><span class="num">03</span><div><h3>Du bekommst deine Analyse</h3><p>PDF plus Sprachnachricht, innerhalb von 48 Stunden. Danach weißt du, was zu tun ist und warum.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WER -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Wer macht das</span>
+    <div class="coach">
+      <div class="coach-photo"><span>FOTO: Training, Rack<br>(Shotlist Motiv 2)</span></div>
+      <div>
+        <h2 style="margin-bottom:28px">Ich bin Lukas. <strong>Coach für Menschen, deren Kalender voll ist.</strong></h2>
+        <p>Ich arbeite ausschließlich mit Menschen, die neben Job, Familie und Verantwortung fit werden wollen. Nicht mit Diät-Plänen oder Motivations-Content, sondern mit klaren Systemen.</p>
+        <p>Bevor ich jemandem sage, was er tun soll, will ich wissen, warum es bisher nicht gelaufen ist. Dafür ist diese Analyse da. Jede einzelne geht über meinen Tisch.</p>
+        <div class="stats">
+          <div><span class="num">8+</span><span>Jahre Erfahrung</span></div>
+          <div><span class="num">100+</span><span>Klienten</span></div>
+          <div><span class="num">Ö/D/CH</span><span>DACH-Raum</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PASST DAS -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Für wen</span>
+    <h2>Passt das <strong>zu dir?</strong></h2>
+    <ul class="fitlist">
+      <li><span>+</span>Du bist 30 plus, hast einen vollen Alltag und weißt nicht genau, wo du körperlich wirklich stehst.</li>
+      <li><span>+</span>Du hast schon einiges probiert, aber nie eine klare Antwort bekommen, was konkret bei dir funktioniert.</li>
+      <li><span>+</span>Du willst wissen, was in den nächsten Monaten realistisch möglich ist und was du dafür konkret angehen musst.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ERGEBNISSE -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Ergebnisse</span>
+    <h2>Menschen, die den <strong>Schritt gemacht haben.</strong></h2>
+    <div class="proof">
+      <div class="pr-item">
+        <div class="pr-photo"><span>FOTO KLIENT 1<br>echtes Foto, angezogen ok<br>Training oder Alltag</span></div>
+        <div class="pr-body">
+          <p>[PLATZHALTER: echtes Zitat. Ideal: konkreter Moment, z. B. endlich klare Zahlen statt Raten.]</p>
+          <span class="who">Vorname, Alter · Beruf</span>
+        </div>
+      </div>
+      <div class="pr-item">
+        <div class="pr-photo"><span>FOTO KLIENT 2</span></div>
+        <div class="pr-body">
+          <p>[PLATZHALTER: echtes Zitat. Ideal: Schichtdienst oder Führungsrolle, Struktur statt Motivation.]</p>
+          <span class="who">Vorname, Alter · Beruf</span>
+        </div>
+      </div>
+      <div class="pr-item">
+        <div class="pr-photo"><span>FOTO KLIENT 3</span></div>
+        <div class="pr-body">
+          <p>[PLATZHALTER: echtes Zitat. Ideal: Ergebnis nach 3 bis 6 Monaten, eine konkrete Zahl, keine Übertreibung.]</p>
+          <span class="who">Vorname, Alter · Beruf</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREIS -->
+<section>
+  <div class="wrap" style="text-align:center">
+    <span class="mono sec-label" style="margin-bottom:0">Dein erster Schritt. Einmalig 24 Euro.</span>
+    <div class="price-box">
+      <span class="mono">Deine persönliche Analyse</span>
+      <div class="price">24<sup>€</sup></div>
+      <span class="mono" style="color:var(--dimmer)">Einmalig · Kein Abo</span>
+      <ul>
+        <li><span>+</span>Persönliche Diagnose deiner Situation</li>
+        <li><span>+</span>Ist-Stand mit konkreten Zahlen</li>
+        <li><span>+</span>Dein größter Engpass, klar benannt</li>
+        <li><span>+</span>12-Monats-Projektion (Gewicht und KFA)</li>
+        <li><span>+</span>Konkrete Handlungsempfehlung von mir</li>
+        <li><span>+</span>Geliefert als PDF und Sprachnachricht</li>
+        <li><span>+</span>Bei Coaching-Start voll angerechnet</li>
+      </ul>
+      <a class="btn" href="https://buy.stripe.com/fZueVd6iOeBs1Y8bYN5EY00" style="width:100%">Persönliche Analyse starten</a>
+      <p class="pay-note">Sichere Zahlung via Stripe. Nach dem Kauf gelangst du direkt zum Formular.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIE -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <span class="mono">Geld-zurück-Garantie</span>
+      <h3>Bringt dir die Analyse nichts, bekommst du deine 24 € zurück.</h3>
+      <p>Wenn dir deine Analyse keinen klaren nächsten Schritt gibt, schreib mir eine kurze Nachricht und du bekommst den vollen Betrag zurück. Ohne Diskussion, ohne Formular. Das Risiko liegt bei mir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <span class="mono sec-label">Fragen</span>
+    <h2>Noch Fragen? <strong>Hier sind die Antworten.</strong></h2>
+    <div class="faq">
+      <details><summary>Wie läuft das ab?</summary><p>Nach dem Kauf gelangst du direkt zum Formular, das füllst du in 5 Minuten aus. Ich sehe mir deine Angaben persönlich an und erstelle deine Analyse. Du bekommst sie innerhalb von 48 Stunden per Mail oder WhatsApp, als PDF und persönliche Sprachnachricht.</p></details>
+      <details><summary>Ist das ein Abo?</summary><p>Nein. Einmalige Zahlung, 24 €. Keine Verlängerung, keine versteckten Kosten.</p></details>
+      <details><summary>Was unterscheidet das vom kostenlosen Rechner?</summary><p>Der Rechner zeigt dir, was möglich ist. Er beantwortet das Was. Die persönliche Analyse beantwortet das Warum: warum du heute noch nicht dort bist, welches Muster dich zurückwirft und an welchem Hebel du zuerst ansetzen musst. Dazu meine Einschätzung per Sprachnachricht.</p></details>
+      <details><summary>Wie lange dauert es?</summary><p>Maximal 48 Stunden nach deinem ausgefüllten Formular. Meistens schneller.</p></details>
+      <details><summary>Was, wenn mir die Analyse nichts bringt?</summary><p>Dann bekommst du die 24 € zurück. Kurze Nachricht reicht.</p></details>
+      <details><summary>Was kommt nach der Analyse?</summary><p>Viele setzen sie allein um, dafür ist sie gebaut. Wenn ich glaube, dass du es bei deinem Muster nicht allein machen solltest, sage ich dir das offen in der Sprachnachricht. Mein 1:1 Coaching kostet 349 € pro Monat und startet nach einem persönlichen Gespräch. Deine 24 € werden dabei voll angerechnet.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section style="border-bottom:none">
+  <div class="wrap" style="text-align:center">
+    <span class="mono sec-label" style="margin-bottom:20px">Bereit?</span>
+    <h2 style="margin:0 auto 16px;max-width:660px">Du brauchst keinen neuen Plan. <strong>Du brauchst Klarheit, warum es nicht läuft.</strong></h2>
+    <p style="color:var(--dim);max-width:520px;margin:0 auto">24 €. Einmalig. Danach weißt du, warum dein aktuelles System dich immer wieder zurückgeworfen hat und welcher Schritt für dich der richtige ist.</p>
+    <a class="btn" href="https://buy.stripe.com/fZueVd6iOeBs1Y8bYN5EY00" style="margin-top:40px">Persönliche Analyse starten · 24 €</a>
+    <p class="note">Deine Analyse kommt innerhalb von 48 Stunden.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span class="wordmark" style="font-size:13px">VOLTR.</span>
+    <span class="mono">
+      <a href="https://www.voltr.at/impressum">Impressum</a>
+      <a href="https://www.voltr.at/datenschutz">Datenschutz</a>
+      <a href="https://www.voltr.at/agb">AGB</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

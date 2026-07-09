@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deine Angaben · VOLTR</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--panel:#101010;--line:#232321;--line2:#3a3a37;--text:#f4f4f2;--dim:#a3a39e;--dimmer:#63635f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;font-weight:300;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.mono{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.wrap{max-width:640px;margin:0 auto;padding:64px 24px 120px}
+.wordmark{font-weight:600;letter-spacing:.28em;font-size:14px;text-transform:uppercase;text-decoration:none;color:inherit}
+h1{font-weight:300;font-size:clamp(30px,5vw,44px);line-height:1.12;margin:28px 0 16px}
+h1 strong{font-weight:600}
+p.lead{color:var(--dim);font-size:16px;margin-bottom:56px}
+label{display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:36px 0 8px}
+input,select,textarea{width:100%;border:none;border-bottom:1px solid var(--line2);padding:12px 0;font-family:'Outfit',sans-serif;font-weight:300;font-size:17px;outline:none;background:transparent;color:var(--text);border-radius:0}
+select{background:var(--bg)}
+textarea{border:1px solid var(--line2);padding:14px;min-height:110px;resize:vertical;background:var(--panel)}
+input::placeholder,textarea::placeholder{color:var(--dimmer)}
+input:focus,textarea:focus,select:focus{border-color:var(--text)}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.btn{display:inline-block;margin-top:56px;background:var(--text);color:var(--bg);font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:20px 44px;border:1px solid var(--text);cursor:pointer;transition:all .2s;font-weight:700}
+.btn:hover{background:transparent;color:var(--text)}
+.note{margin-top:18px;font-size:13px;color:var(--dimmer)}
+.attached{background:var(--panel);border:1px solid var(--line);padding:18px 20px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--dim);margin-top:40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="wordmark" href="index.html">VOLTR.</a>
+  <span class="mono" style="display:block;margin-top:48px">Die persönliche Analyse · Schritt 1 von 2</span>
+  <h1>Zahlung erhalten. Jetzt brauche ich <strong>deine Zahlen.</strong></h1>
+  <p class="lead">Etwa 5 Minuten. Je ehrlicher die Angaben, desto präziser die Analyse. Deine Rechner-Auswertung hängt automatisch an.</p>
+
+  <form action="https://formsubmit.co/training@voltr.at" method="POST">
+    <input type="hidden" name="_subject" value="Neue persönliche Analyse: Intake">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://analyse.voltr.at/danke.html">
+    <input type="hidden" name="rechner_auswertung" id="calc-data" value="Keine Auswertung im Browser gefunden">
+
+    <label>Vorname und Nachname</label>
+    <input type="text" name="name" required>
+    <label>E-Mail</label>
+    <input type="email" name="email" required>
+    <label>WhatsApp-Nummer (optional, für die Sprachnachricht)</label>
+    <input type="text" name="whatsapp" placeholder="+43 ...">
+
+    <div class="row">
+      <div><label>Alter</label><input type="number" name="alter" required></div>
+      <div><label>Größe (cm)</label><input type="number" name="groesse" required></div>
+      <div><label>Gewicht (kg)</label><input type="number" name="gewicht" step="0.5" required></div>
+    </div>
+
+    <label>Dein Job und wie deine typische Woche aussieht</label>
+    <textarea name="woche" placeholder="z. B. Geschäftsführer, 55 bis 60 Stunden, 2 Abende Familie fix, Reisen ca. 1x pro Monat" required></textarea>
+
+    <label>Wie viele Trainingstage sind realistisch, auch in schlechten Wochen?</label>
+    <select name="trainingstage" required>
+      <option value="" disabled selected>Bitte wählen</option>
+      <option>2</option><option>3</option><option>4</option><option>5+</option>
+    </select>
+
+    <label>Wo trainierst du und mit welchem Equipment?</label>
+    <textarea name="equipment" placeholder="z. B. Gym mit allem, Home-Gym mit Kurzhanteln bis 30 kg, nur Körpergewicht" required></textarea>
+
+    <label>Verletzungen oder Schmerzen, die ich kennen sollte</label>
+    <textarea name="verletzungen" placeholder="Falls keine: keine"></textarea>
+
+    <label>Dein Ziel in einem Satz</label>
+    <textarea name="ziel" required></textarea>
+
+    <label>Was hast du zuletzt trainiert und wie lange schon / wie lange nicht mehr?</label>
+    <textarea name="historie" required></textarea>
+
+    <label>Woran ist der letzte Anlauf gescheitert, aus deiner Sicht?</label>
+    <textarea name="muster" placeholder="z. B. nach 3 Wochen kam eine Dienstreise und dann war es vorbei" required></textarea>
+
+    <div class="attached" id="attach-note">Auswertung wird angehängt ...</div>
+
+    <button class="btn" type="submit">Absenden. Analyse in 48 h.</button>
+    <p class="note">Deine Daten gehen direkt an mich (training@voltr.at) und werden für nichts anderes verwendet als deine Analyse.</p>
+  </form>
+</div>
+<script>
+(function(){
+  try{
+    const r = localStorage.getItem('voltr_analyse');
+    const field = document.getElementById('calc-data');
+    const note = document.getElementById('attach-note');
+    if(r){
+      const d = JSON.parse(r);
+      const i = d.input||{};
+      let out = 'RECHNER-AUSWERTUNG vom '+(d.ts||'')+'\n';
+      out += 'Ziel: '+(i.goal==='cut'?'Körperfett runter':'Aufbauen')+' | Erfahrung: '+i.exp+' | Tage/Woche: '+i.days+' | Zeitraum: '+i.months+' Monate\n';
+      out += 'Start: '+d.start.w+' kg bei '+d.start.kfa+' % KFA\n';
+      out += 'Ergebnis: '+d.ende.w+' kg bei '+d.ende.kfa+' % KFA (fettfrei '+d.ende.lean+' kg, Fett '+d.ende.fat+' kg)';
+      field.value = out;
+      note.textContent = 'Auswertung angehängt: '+d.start.w+' kg / '+d.start.kfa+' % zu '+d.ende.w+' kg / '+d.ende.kfa+' % in '+i.months+' Monaten';
+    } else {
+      note.textContent = 'Keine Auswertung in diesem Browser gefunden. Kein Problem, das Formular reicht.';
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
