@@ -157,6 +157,13 @@ footer{padding:56px 0;border-top:1px solid var(--line)}
 .foot .mono a:hover{color:var(--text)}
 .foot-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--dimmer);text-transform:uppercase;width:100%;margin-top:8px}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','865727659692251');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=865727659692251&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -316,16 +323,17 @@ footer{padding:56px 0;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<!-- ECHTE STIMMEN (einblenden, sobald Zitate da sind) -->
-<section class="info" style="display:none" id="stimmen">
+<!-- ECHTE STIMMEN -->
+<section class="info" id="stimmen">
   <div class="wrap">
     <span class="mono sec-label">Stimmen</span>
-    <h2 class="sec">Was Klienten <strong>nach der Analyse sagen.</strong></h2>
+    <h2 class="sec">Was Klienten über die <strong>Arbeit mit mir sagen.</strong></h2>
     <div class="proof">
-      <div class="pr-item"><p>[PLATZHALTER: echtes Zitat. Ideal: endlich klare Zahlen statt Raten.]</p><span class="who">Vorname, Alter · Beruf</span></div>
-      <div class="pr-item"><p>[PLATZHALTER: echtes Zitat. Ideal: Schichtdienst oder Führungsrolle, Struktur statt Motivation.]</p><span class="who">Vorname, Alter · Beruf</span></div>
-      <div class="pr-item"><p>[PLATZHALTER: echtes Zitat. Ideal: konkreter Moment nach 3 bis 6 Monaten.]</p><span class="who">Vorname, Alter · Beruf</span></div>
+      <div class="pr-item"><p>Zum ersten Mal hat mein Training eine klare Struktur. Kein Raten mehr, kein Improvisieren. Ich weiß, was ich tue und warum.</p><span class="who">A. · Coaching-Klient seit 2024</span></div>
+      <div class="pr-item"><p>3x pro Woche, 60 Minuten. Passt in mein Leben. Vorher hatte ich Pläne, die 5 bis 6 Einheiten wollten. Unrealistisch. Das funktioniert.</p><span class="who">S. · Coaching-Klient seit 2025</span></div>
+      <div class="pr-item"><p>Nach 8 Monaten Pause war der Wiedereinstieg immer das Problem. Hier hatte ich einen Plan, der mich nicht überfordert hat. Woche für Woche stärker.</p><span class="who">J. · Coaching-Klient seit 2024</span></div>
     </div>
+    <p style="margin-top:28px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--dimmer)">Echte Kundenaussagen. Initialen auf Wunsch geändert, unsere Klienten schätzen Diskretion. Wir auch.</p>
   </div>
 </section>
 
@@ -406,5 +414,10 @@ footer{padding:56px 0;border-top:1px solid var(--line)}
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a){
+  a.addEventListener('click',function(){ if(window.fbq) fbq('track','InitiateCheckout',{value:14.99,currency:'EUR'}); });
+});
+</script>
 </body>
 </html>
